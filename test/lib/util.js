@@ -1,6 +1,6 @@
 const path = typeof __webpack_require__ !== 'function' ? require('path') : null // eslint-disable-line camelcase
 const fs = typeof __webpack_require__ !== 'function' ? require('fs') : null // eslint-disable-line camelcase
-const { fromUrl } = require('../../src/io')
+const { fromUrl } = require('generic-filehandle')
 
 const dataDir =
   path &&
@@ -8,7 +8,7 @@ const dataDir =
 
 function testDataUrl(filename) {
   return typeof window === 'undefined'
-    ? `file://${dataDir}/${filename}`.replace('#', '%23')
+    ? `file://${dataDir}/${filename}`
     : `http://localhost:9876/base/test/data/${filename.replace('#', '%23')}`
 }
 
